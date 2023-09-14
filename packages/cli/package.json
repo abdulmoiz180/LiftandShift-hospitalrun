@@ -1,0 +1,42 @@
+{
+  "name": "@hospitalrun/cli",
+  "version": "0.3.1",
+  "description": "Hospitalrun CLI",
+  "main": "index.ts",
+  "repository": "https://github.com/HospitalRun/cli.git",
+  "author": "Moiz",
+  "license": "MIT",
+  "scripts": {
+    "hospitalrun": "npm run build && node bin/hospitalrun",
+    "commit": "npx git-cz",
+    "build": "npm run clean && tsc -p ./tsconfig.json",
+    "clean": "rimraf bin",
+    "update": "yarn upgrade-interactive --latest",
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
+    "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
+    "test": "cross-env TS_NODE_PROJECT=./test/tsconfig.json tap test/**/*.ts",
+    "test:ci": "cross-env TS_NODE_PROJECT=./test/tsconfig.json tap --coverage-report=text-lcov test/**/*.ts > lcov.info",
+    "lint-staged": "lint-staged",
+    "commitlint": "commitlint",
+    "semantic-release": "semantic-release"
+  },
+  "dependencies": {
+    "@sinclair/typebox": "^0.31.14",
+    "@types/node": "^20.6.0",
+    "ajv": "^8.12.0",
+    "eslint-config-react-app": "^7.0.1",
+    "fs": "^0.0.1-security",
+    "glob": "^10.3.4",
+    "mkdirp": "^3.0.1",
+    "path": "^0.12.7",
+    "require-from-string": "^2.0.2",
+    "rimraf": "^5.0.1",
+    "sade": "^1.8.1",
+    "tap": "^16.3.8",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/require-from-string": "^1.2.1",
+    "eslint-config-airbnb-base": "^15.0.0"
+  }
+}

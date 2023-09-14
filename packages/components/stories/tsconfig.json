@@ -1,0 +1,12 @@
+{
+  "extends": "../tsconfig.json",
+  "include": [".", "../types"],
+  "compilerOptions": {
+    "jsx": "react",
+    "declaration": false,
+    "baseUrl": "../",
+    "paths": {
+      "@hospitalrun/components": ["../src"]
+    }
+  }
+}
