@@ -98,7 +98,3 @@ describe('BarGraph', () => {
     expect(wrapper.find(HTMLCanvasElement)).toHaveLength(1)
   })
 })
-function expect(arg0: unknown) {
-  throw new Error('Function not implemented.')
-}
-

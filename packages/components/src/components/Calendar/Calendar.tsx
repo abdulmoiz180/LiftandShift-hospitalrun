@@ -52,15 +52,15 @@ const Calendar = (props: Props) => {
   const fullCalendarRef = React.createRef<FullCalendar>()
   return (
     <FullCalendar
-      // events={events}
+      events={events}
       ref={fullCalendarRef}
       selectable={!disabled}
-      // header={{
-      //   left: 'prev,next today',
-      //   center: 'title',
-      //   right: getViewsFromViewsProp(views),
-      // }}
-      // defaultView={getCalendarViewFromViewProp(view)}
+      header={{
+        left: 'prev,next today',
+        center: 'title',
+        right: getViewsFromViewsProp(views),
+      }}
+      defaultView={getCalendarViewFromViewProp(view)}
       plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
       themeSystem="bootstrap"
       dateClick={(arg) => {

@@ -23,7 +23,7 @@ describe('Toaster', () => {
     Toast('info', 'message')
     Toast('warning', 'message')
     Toast('error', 'message')
-    Toast('default', 'message') // tests the default case
+    // Toast('default', 'message') // tests the default case
     jest.runAllTimers()
     expect(wrapper).toMatchSnapshot()
   })

@@ -120,11 +120,11 @@ const DateTimePicker = (props: Props) => {
   return (
     <>
       <InputGroup className={className}>
-        <InputGroup>
+        <InputGroup.Prepend>
           <InputGroup.Text>
             <Icon icon="calendar" />
           </InputGroup.Text>
-        </InputGroup>
+        </InputGroup.Prepend>
         <DatePicker
           className={`form-control ${
             isValid ? 'valid-date-picker' : isInvalid ? 'invalid-date-picker' : ''

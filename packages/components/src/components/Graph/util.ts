@@ -1,6 +1,6 @@
 import ChartJs, {
   ChartData,
-  ChartDataset,
+  ChartDataSets,
   Point,
   CommonAxe,
   ChartConfiguration,

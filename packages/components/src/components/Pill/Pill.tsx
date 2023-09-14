@@ -24,9 +24,7 @@ interface Props {
 const Pill = (props: Props) => {
   const { color, children, className, style } = props
   return (
-    <Badge pill 
-   // variant={color}
-     className={className} style={style}>
+    <Badge pill variant={color} className={className} style={style}>
       {children}
     </Badge>
   )

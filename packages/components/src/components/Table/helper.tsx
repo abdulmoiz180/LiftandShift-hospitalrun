@@ -21,7 +21,7 @@ const SelectColumnFilter = ({
 }: DefaultColumnFilterOptions) => {
   const options = React.useMemo(() => {
     const opt: string[] = []
-    preFilteredRows.forEach((row: { values: { [x: string]: string } }) => {
+    preFilteredRows.forEach((row) => {
       if (opt.indexOf(row.values[id]) === -1) {
         opt.push(row.values[id])
       }

@@ -19,9 +19,8 @@ interface Props {
  */
 const Badge = (props: Props) => {
   const { color, children, className, style } = props
-   return (
-  //  variant={color}
-    <BootstrapBadge  className={className} style={style}>
+  return (
+    <BootstrapBadge variant={color} className={className} style={style}>
       {children}
     </BootstrapBadge>
   )

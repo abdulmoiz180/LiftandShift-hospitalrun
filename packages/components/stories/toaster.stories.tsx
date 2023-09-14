@@ -19,7 +19,7 @@ storiesOf('Toaster', module)
       <Button
         color="default"
         onClick={() => {
-         // Toast('default', 'This is a toaster!', 'Default and position is top-right')
+          Toast('default', 'This is a toaster!', 'Default and position is top-right')
         }}
       >
         Click me!
@@ -58,12 +58,12 @@ storiesOf('Toaster', module)
       <Button
         color="primary"
         onClick={() => {
-          // Toast(
-          //   'warning',
-          //   'This is a toaster!',
-          //   'Warning and position is bottom-right',
-          //   'bottom-right',
-          // )
+          Toast(
+            'warning',
+            'This is a toaster!',
+            'Warning and position is bottom-right',
+            'bottom-right',
+          )
         }}
       >
         Click me!
@@ -89,12 +89,12 @@ storiesOf('Toaster', module)
       <Button
         color="defult"
         onClick={() => {
-          // Toast(
-          //   'default',
-          //   'This is a toaster!',
-          //   'Default and position is bottom-center',
-          //   'bottom-center',
-          // )
+          Toast(
+            'default',
+            'This is a toaster!',
+            'Default and position is bottom-center',
+            'bottom-center',
+          )
         }}
       >
         Click me!

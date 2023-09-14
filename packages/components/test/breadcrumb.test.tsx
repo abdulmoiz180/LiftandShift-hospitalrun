@@ -2,7 +2,7 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 import BootstrapBreadcrumb from 'react-bootstrap/Breadcrumb'
 import BootstrapBreadcrumbItem from 'react-bootstrap/BreadcrumbItem'
-import * as sinon from 'sinon'
+import sinon from 'sinon'
 
 import { Breadcrumb, BreadcrumbItem } from '../src'
 
@@ -73,7 +73,3 @@ describe('BreadcrumbItem', () => {
     expect(breadcrumbItem.props().style).toMatchObject({ background: 'red' })
   })
 })
-
-function expect(className: string | undefined) {
-  throw new Error('Function not implemented.')
-}

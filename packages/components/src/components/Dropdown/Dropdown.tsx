@@ -46,13 +46,13 @@ const Dropdown = (props: Props) => {
 
   return (
     <DropdownButton
-      //drop={direction}
-     // size={size}
+      drop={direction}
+      size={size}
       variant={variant}
       title={text}
       id={id}
       style={style}
-      //alignRight={alignRight}
+      alignRight={alignRight}
     >
       {items.map((item, i) => getDropdownItem(item, i))}
     </DropdownButton>

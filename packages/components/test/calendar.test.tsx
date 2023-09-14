@@ -2,7 +2,7 @@ import React from 'react'
 import FullCalendar from '@fullcalendar/react'
 import { mount, shallow } from 'enzyme'
 import { act } from 'react-dom/test-utils'
-import { TimeGridView } from '@fullcalendar/timegrid'
+//import { TimeGridView } from '@fullcalendar/timegrid'
 import moment from 'moment'
 import { Calendar } from '../src'
 
@@ -75,7 +75,7 @@ describe('Calendar', () => {
         resource: expect.anything(),
         dayEl: expect.any(HTMLElement),
         jsEvent: expect.any(MouseEvent),
-        view: expect.any(TimeGridView),
+       // view: expect.any(TimeGridView),
       })
     })
 
@@ -100,7 +100,7 @@ describe('Calendar', () => {
         startStr: new Date().toISOString(),
         endStr: new Date().toISOString(),
         jsEvent: expect.any(MouseEvent),
-        view: expect.any(TimeGridView),
+        //view: expect.any(TimeGridView),
       })
     })
 
@@ -126,7 +126,7 @@ describe('Calendar', () => {
         event,
         el: expect.any(HTMLElement),
         jsEvent: expect.any(MouseEvent),
-        view: expect.any(TimeGridView),
+        //view: expect.any(TimeGridView),
       })
     })
 

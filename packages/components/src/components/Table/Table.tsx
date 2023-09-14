@@ -10,6 +10,11 @@ interface Props {
   data?: Data[]
 }
 
+code by AbdulMoiz
+interface TableState extends Record<string, any> {
+  pageIndex: number;
+  pageSize: number;
+}
 
 
 
@@ -54,10 +59,10 @@ function Table({ data, tableProperties }: Props) {
                   {...column.getHeaderProps()}
                   className={column.headerClassName ? column.headerClassName : ''}
                 >
-                  <div {...(column.disableSorting ? null : column.getSortByToggleProps())}>
-                    {column.render('Header')}    
+                  {/* <div {...(column.disableSorting ? null : column.getSortByToggleProps())}>
+                    {column.render('Header')}              ------------------ Does not exist in generated columns
                     <span>{column.isSorted ? (column.isSortedDesc ? ' 🔽' : ' 🔼') : ''}</span>   
-                  </div>
+                  </div> */}
 
                   <div>{!column.disableFiltering && column.render('Filter')}</div>
                 </th>

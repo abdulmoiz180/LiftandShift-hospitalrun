@@ -83,7 +83,7 @@ const Button = (props: Props) => {
   return (
     <BootstrapButton
       variant={variant as ButtonType}
-      //block={block}
+      block={block}
       disabled={disabled}
       size={getButtonSize(size)}
       onClick={onClick}

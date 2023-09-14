@@ -63,7 +63,7 @@ const Select = (props: Props) => {
         isValid={isValid}
         disabled={disabled}
         size={getControlSize(size)}
-        //onChange={onChange}
+        onChange={onChange}
         className={className}
         style={style}
       >

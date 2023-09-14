@@ -29,23 +29,21 @@ const Navbar = (props: Props) => {
       className={link.className}
       href={link.href ? link.href : ''}
       key={index}
-      // onClick={link.onClick}
+      onClick={link.onClick}
     >
       {link.label}
     </NavDropdown.Item>
   )
   const getNavSearch = (search: NavSearch, index: number) => (
     <Nav className={search.className} key={index}>
-      <Form >
+      <Form inline>
         <FormControl
           type="text"
           placeholder={search.placeholderText || 'Search'}
           className="mr-sm-2"
-          // onChange={search.onChangeInput}
+          onChange={search.onChangeInput}
         />
-        <Button color={search.buttonColor || 'primary'} 
-         //onClick={search.onClickButton}
-         >
+        <Button color={search.buttonColor || 'primary'} onClick={search.onClickButton}>
           {search.buttonText || 'Search'}
         </Button>
       </Form>
@@ -53,7 +51,7 @@ const Navbar = (props: Props) => {
   )
   const getNavLinkList = (list: NavLinkList, index: number) => (
     <NavDropdown
-      //alignRight={list.alignRight}
+      alignRight={list.alignRight}
       className={list.className}
       title={list.label}
       id="collasible-nav-dropdown"
@@ -64,7 +62,7 @@ const Navbar = (props: Props) => {
   )
   const getNavLinkListIcon = (list: NavLinkListIcon, index: number) => (
     <NavDropdown
-    //  alignRight={list.alignRight}
+      alignRight={list.alignRight}
       className={list.className}
       title={<img alt={list.alt} src={list.src} width="28" height="28" />}
       id="collasible-nav-dropdown"
@@ -76,7 +74,7 @@ const Navbar = (props: Props) => {
   const getNavHeader = (header: NavHeader, index: number) => (
     <NavbarRB.Brand
       className={header.className}
-      // onClick={header.onClick}
+      onClick={header.onClick}
       style={{ cursor: 'pointer' }}
       key={index}
     >
@@ -90,7 +88,7 @@ const Navbar = (props: Props) => {
           ? icon.className.concat(' ', 'd-inline-block align-top')
           : 'd-inline-block align-top'
       }
-      // onClick={icon.onClick}
+      onClick={icon.onClick}
       style={{ cursor: 'pointer' }}
       key={index}
     >
@@ -99,9 +97,7 @@ const Navbar = (props: Props) => {
   )
 
   const getNavLink = (link: NavLink, index: number) => (
-    <Nav.Link className={link.className}
-    // onClick={link.onClick}
-      key={index}>
+    <Nav.Link className={link.className} onClick={link.onClick} key={index}>
       {link.label}
     </Nav.Link>
   )

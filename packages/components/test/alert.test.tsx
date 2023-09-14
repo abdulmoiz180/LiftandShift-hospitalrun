@@ -82,8 +82,4 @@ describe('Alert', () => {
     expect(alertWrapper.containsMatchingElement(<></>)).toBeTruthy()
   })
 })
-
-function expect(arg0: any) {
-  throw new Error('Function not implemented.')
-}
 // Cannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.
