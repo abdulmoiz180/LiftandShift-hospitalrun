@@ -43,9 +43,8 @@ storiesOf('Typeahead', module)
         onSearch={() => getOptions()}
         onChange={(selected) => alert(JSON.stringify(selected))}
         renderMenuItemChildren={(option) => (
-          // eslint-disable-next-line
             <div>
-              {`${option.fullName}`}
+              {`${option}`}
             </div>
         )}
       />
@@ -66,9 +65,8 @@ storiesOf('Typeahead', module)
           fullName: 'first3 last3',
         }}
         renderMenuItemChildren={(option) => (
-          // eslint-disable-next-line
             <div>
-              {`${option.fullName}`}
+              {`${option}`}
             </div>
         )}
       />
@@ -90,9 +88,8 @@ storiesOf('Typeahead', module)
           fullName: 'first3 last3',
         }}
         renderMenuItemChildren={(option) => (
-          // eslint-disable-next-line
             <div>
-              {`${option.fullName}`}
+              {`${option}`}
             </div>
         )}
       />
@@ -114,11 +111,11 @@ storiesOf('Typeahead', module)
           fullName: 'first3 last3',
         }}
         renderMenuItemChildren={(option) => (
-          // eslint-disable-next-line
             <div>
-              {`${option.fullName}`}
+              {`${option}`}
             </div>
         )}
       />
     </div>
   ))
+  // {`${option.fullName} relaced with {`${option}`}

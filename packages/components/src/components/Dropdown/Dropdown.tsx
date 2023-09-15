@@ -20,9 +20,9 @@ interface Props {
   /** Handle the dropdown toggle additional click events */
   onClick?: (event: React.MouseEvent<any>) => void
   /** Determines the dropdown toggle button size */
-  size?: 'sm' | 'md' | 'lg'
+  size?: 'sm' | 'lg'
   /** Determines the dropdown's direction */
-  direction?: 'down' | 'up' | 'left' | 'right'
+  direction?: 'up' | 'up-centered' | 'start' | 'end' | 'down' | 'down-centered';
   /** Determines the dropdown's custom style */
   style?: Record<string, any>
 }
@@ -31,8 +31,9 @@ interface Props {
  * Customizable dropdown component based on React-Bootstrap dropdown
  *
  */
+// alignRight
 const Dropdown = (props: Props) => {
-  const { text, size, id, items, direction, variant, style, alignRight } = props
+  const { text, size, id, items, direction, variant, style } = props
 
   const getDropdownItem = (item: Item, i: number) => (
     <DropdownRB.Item
@@ -43,6 +44,7 @@ const Dropdown = (props: Props) => {
       {item.text}
     </DropdownRB.Item>
   )
+     // alignRight={alignRight}
 
   return (
     <DropdownButton
@@ -52,7 +54,6 @@ const Dropdown = (props: Props) => {
       title={text}
       id={id}
       style={style}
-      alignRight={alignRight}
     >
       {items.map((item, i) => getDropdownItem(item, i))}
     </DropdownButton>

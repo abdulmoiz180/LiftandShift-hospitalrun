@@ -22,11 +22,11 @@ interface Props {
   onEventClick?: (event: Event) => void
 }
 
-const viewToCalendarViewMap = {
-  month: 'dayGridMonth',
-  week: 'timeGridWeek',
-  day: 'timeGridDay',
-}
+// const viewToCalendarViewMap = {
+//   month: 'dayGridMonth',
+//   week: 'timeGridWeek',
+//   day: 'timeGridDay',
+// }
 
 const getEventFromFullCalendarEventApi = (e: EventApi): Event => ({
   id: e.id,
@@ -36,31 +36,30 @@ const getEventFromFullCalendarEventApi = (e: EventApi): Event => ({
   allDay: e.allDay,
 })
 
-const getCalendarViewFromViewProp = (view: View) => (viewToCalendarViewMap as any)[view]
+// const getCalendarViewFromViewProp = (view: View) => (viewToCalendarViewMap as any)[view]
 
-const getViewsFromViewsProp = (views: View[]) => {
-  let viewsString = ''
-  views.forEach((view) => {
-    viewsString += `${getCalendarViewFromViewProp(view)},`
-  })
+// const getViewsFromViewsProp = (views: View[]) => {
+//   let viewsString = ''
+//   views.forEach((view) => {
+//     viewsString += `${getCalendarViewFromViewProp(view)},`
+//   })
 
-  return viewsString.slice(0, viewsString.length - 1)
-}
+//   return viewsString.slice(0, viewsString.length - 1)
+// }
 
 const Calendar = (props: Props) => {
-  const { view, views, events, disabled, onDateClick, onDateRangeSelected, onEventClick } = props
+  const { disabled, onDateClick, onDateRangeSelected, onEventClick } = props
   const fullCalendarRef = React.createRef<FullCalendar>()
   return (
     <FullCalendar
-      events={events}
       ref={fullCalendarRef}
       selectable={!disabled}
-      header={{
-        left: 'prev,next today',
-        center: 'title',
-        right: getViewsFromViewsProp(views),
-      }}
-      defaultView={getCalendarViewFromViewProp(view)}
+      // header={{
+      //   left: 'prev,next today',
+      //   center: 'title',
+      //   right: getViewsFromViewsProp(views),
+      // }}
+      // defaultView={getCalendarViewFromViewProp(view)}
       plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
       themeSystem="bootstrap"
       dateClick={(arg) => {

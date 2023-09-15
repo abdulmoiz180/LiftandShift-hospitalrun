@@ -1,6 +1,5 @@
 import React from 'react'
-import { useTable, useFilters, useSortBy, usePagination, TableInstance } from 'react-table'
-import { generateColumns } from './helper'
+import { useTable } from 'react-table'
 import { Data, TableProperties, GeneratedColumn } from './interfaces'
 
 interface Props {
@@ -10,17 +9,12 @@ interface Props {
   data?: Data[]
 }
 
-code by AbdulMoiz
-interface TableState extends Record<string, any> {
-  pageIndex: number;
-  pageSize: number;
-}
 
 
+  //const columns = React.useMemo(() => generateColumns(tableProperties.columns), [])
 
 
 function Table({ data, tableProperties }: Props) {
-  const columns = React.useMemo(() => generateColumns(tableProperties.columns), [])
 
   const {
     getTableProps,
@@ -37,22 +31,12 @@ function Table({ data, tableProperties }: Props) {
     previousPage,
     setPageSize,
     state: { pageIndex, pageSize },
-  } = useTable<Data>(
-    {
-      columns,
-      data: data || [],
-      initialState: { pageIndex: 0 },
-    },
-    useFilters,
-    useSortBy,
-    usePagination,
-  ) as TableInstance<object>
-
+  }: any = useTable;
   return (
     <>
       <table {...getTableProps()} className={tableProperties.tableClassname}>
         <thead>
-          {headerGroups.map((headerGroup) => (
+          {headerGroups.map((headerGroup:any) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column: GeneratedColumn) => (
                 <th

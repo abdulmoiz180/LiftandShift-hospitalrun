@@ -18,9 +18,9 @@ interface Props {
  * from the surrounding content.
  */
 const Badge = (props: Props) => {
-  const { color, children, className, style } = props
+  const { children, className, style } = props
   return (
-    <BootstrapBadge variant={color} className={className} style={style}>
+    <BootstrapBadge className={className} style={style}>
       {children}
     </BootstrapBadge>
   )

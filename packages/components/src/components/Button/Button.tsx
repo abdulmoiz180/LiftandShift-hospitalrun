@@ -55,6 +55,7 @@ function getButtonSize(size: string | undefined): 'sm' | 'lg' | undefined {
 /**
  * Buttons are used to initiate an action.
  */
+// block,
 const Button = (props: Props) => {
   const {
     size,
@@ -62,7 +63,6 @@ const Button = (props: Props) => {
     outlined,
     color,
     icon,
-    block,
     disabled,
     onClick,
     children,
@@ -83,7 +83,7 @@ const Button = (props: Props) => {
   return (
     <BootstrapButton
       variant={variant as ButtonType}
-      block={block}
+      //block={block}
       disabled={disabled}
       size={getButtonSize(size)}
       onClick={onClick}

@@ -7,7 +7,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 import { Button } from '../Button'
 import { NavLink, NavIcon, NavHeader, NavLinkList, NavLinkListIcon, NavSearch } from './interfaces'
 
-interface Props extends React.Props<any> {
+export interface Props {
   /** Determines the navbar background color */
   bg?: string
   /** Determines the letters color. It should be combined with the background color (bg) */
@@ -36,7 +36,7 @@ const Navbar = (props: Props) => {
   )
   const getNavSearch = (search: NavSearch, index: number) => (
     <Nav className={search.className} key={index}>
-      <Form inline>
+      <Form >
         <FormControl
           type="text"
           placeholder={search.placeholderText || 'Search'}
@@ -51,7 +51,6 @@ const Navbar = (props: Props) => {
   )
   const getNavLinkList = (list: NavLinkList, index: number) => (
     <NavDropdown
-      alignRight={list.alignRight}
       className={list.className}
       title={list.label}
       id="collasible-nav-dropdown"
@@ -62,7 +61,6 @@ const Navbar = (props: Props) => {
   )
   const getNavLinkListIcon = (list: NavLinkListIcon, index: number) => (
     <NavDropdown
-      alignRight={list.alignRight}
       className={list.className}
       title={<img alt={list.alt} src={list.src} width="28" height="28" />}
       id="collasible-nav-dropdown"

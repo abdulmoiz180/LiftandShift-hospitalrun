@@ -22,9 +22,9 @@ interface Props {
  * from the surrounding content.
  */
 const Pill = (props: Props) => {
-  const { color, children, className, style } = props
+  const {  children, className, style } = props
   return (
-    <Badge pill variant={color} className={className} style={style}>
+    <Badge pill  className={className} style={style}>
       {children}
     </Badge>
   )

@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 
-import { AsyncTypeahead } from 'react-bootstrap-typeahead'
+import { AsyncTypeahead, RenderMenuItemChildren } from 'react-bootstrap-typeahead'
 
 interface Props {
   id: string
   searchAccessor: string
-  renderMenuItemChildren: (option: any) => React.ReactNode
+  renderMenuItemChildren: RenderMenuItemChildren
   onChange: (selected: any) => void
   onSearch: (query: string) => Promise<any[]>
   minLength?: number

@@ -17,7 +17,7 @@ interface Props {
   value?: string
 
   /** Handles the onChange event for the Select. */
-  onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void
+  onChange?:  React.ChangeEventHandler
   /** The children to render */
   children?: React.ReactNode
   /**
