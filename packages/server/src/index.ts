@@ -1,8 +1,8 @@
 // we need this file because of this issue: https://github.com/fastify/fastify-cli/issues/131
 import 'make-promises-safe'
-import Fastify from 'fastify'
+const Fastify = require("fastify")();
 import hospitalRun from './app'
-
+const blipp = require('fastify-blipp')
 const port = Number(process.env.PORT) || 3000
 const ip = process.env.IP || '0.0.0.0'
 
@@ -10,12 +10,10 @@ const fastify = Fastify(hospitalRun.options)
 fastify.register(hospitalRun)
 
 if (process.env.NODE_ENV !== 'production') {
-  // eslint-disable-next-line
-  const blipp = require('fastify-blipp')
   fastify.register(blipp)
 }
 
-fastify.listen(port, ip, err => {
+fastify.listen(port, ip, (err: any) => {
   if (err) {
     fastify.log.error(err)
     process.exit(1)

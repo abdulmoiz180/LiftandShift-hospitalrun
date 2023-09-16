@@ -1,5 +1,4 @@
 import { promisify } from 'util';
-/// #!/usr/bin/env node
 import fs from 'fs'
 import Sade from 'Sade'
 import ts from 'typescript'
@@ -28,7 +27,8 @@ prog
   .command('build <src>', 'Build design document(s) from TypeScript soruce directory or file.', {
     default: true,
   })
-  // .describe('Build design documents from TypeScript soruce directory or file.')
+   
+  .describe('Build design documents from TypeScript soruce directory or file.')
   .option('-c, --config', 'Provide path to custom tsconfig.json', './tsconfig.json')
   .example('build src/db/designs')
   .example('build src/db/designs/patient.ts -c src/db/tsconfig.json')

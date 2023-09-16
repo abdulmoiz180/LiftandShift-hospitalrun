@@ -1,5 +1,5 @@
 import { FastifyInstance, FastifyError } from 'fastify'
-import proxy from 'fastify-http-proxy'
+import proxy from '@fastify/http-proxy'
 
 interface Options {
   url: string

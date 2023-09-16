@@ -2,19 +2,47 @@
   "name": "@hospitalrun/server",
   "version": "2.0.0-alpha.1",
   "description": "HospitalRun Nodejs server",
-  "main": "index.js",
-  "repository": "https://github.com/HospitalRun/hospitalrun-server.git",
-  "author": "Moiz",
+  "main": "dist",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HospitalRun/hospitalrun-server.git"
+  },
+  "scripts": {
+    "ddoc": "node bin/ddoc",
+    "commit": "npx git-cz",
+    "build": "npm run clean && tsc -p ./tsconfig.json",
+    "build:all": "run-s build build:ddoc build:designs",
+    "build:ddoc": "rimraf bin && tsc -p ./src/bin/tsconfig.json",
+    "build:designs": "npm run ddoc -- src/db/designs -c src/db/tsconfig.json",
+    "start": "node dist",
+    "clean": "rimraf dist",
+    "dev:db": "pouchdb-server --config ./db/config.json",
+    "dev:build": "tsc --incremental -p tsconfig.json && npm run build:designs",
+    "dev:start": "node --inspect -r source-map-support/register -r dotenv/config dist/index.js | pino-colada",
+    "dev:watch": "cross-env NODE_ENV=development npm run clean && nodemon -w src -e ts --exec \"npm run dev:build && npm run dev:start\"",
+    "dev": "run-p dev:db dev:watch",
+    "update": "yarn upgrade-interactive --latest",
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" \"test/**/*.{js,jsx,ts,tsx}\"",
+    "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" \"test/**/*.{js,jsx,ts,tsx}\" --fix",
+    "test": "cross-env TS_NODE_PROJECT=./test/tsconfig.json tap test/**/*.ts",
+    "test:ci": "cross-env TS_NODE_PROJECT=./test/tsconfig.json tap --coverage-report=text-lcov test/**/*.ts > lcov.info",
+    "lint-staged": "lint-staged",
+    "commitlint": "commitlint"
+  },
+  "keywords": [],
+  "author": "Maksim Sinik <maksim@sinik.it>",
   "license": "MIT",
   "dependencies": {
     "@fastify/autoload": "^5.7.1",
     "@fastify/helmet": "^11.1.0",
     "@fastify/http-proxy": "^9.2.1",
+    "@types/tap": "^15.0.9",
     "chalk": "^5.3.0",
     "fastify": "^4.23.1",
-    "fastify-http-proxy": "^6.3.0",
+    "fastify-autoload": "^3.13.0",
+    "fastify-blipp": "^4.0.0",
+    "fastify-no-icon": "^6.0.0",
     "fastify-plugin": "^4.5.1",
-    "glob": "^10.3.4",
     "mkdirp": "^3.0.1",
     "nano": "^10.1.2",
     "path": "^0.12.7",
@@ -30,5 +58,22 @@
     "@types/node": "^20.6.0",
     "@types/qs": "^6.9.8",
     "@types/require-from-string": "^1.2.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "npm run commitlint -- -E HUSKY_GIT_PARAMS",
+      "pre-commit": "npm run lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "npm run lint:fix",
+      "git add ."
+    ]
   }
 }
